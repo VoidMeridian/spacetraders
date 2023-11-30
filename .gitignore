@@ -1,0 +1,5 @@
+/.vscode
+*.o
+*.so
+tests/test
+valgrind-out.txt
