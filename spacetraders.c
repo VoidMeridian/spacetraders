@@ -1,67 +1,47 @@
 #include "spacetraders.h"
-#include "spacetraders-functions.h"
-#include <string.h>
-#include <stdlib.h>
+
 #include <cjson/cJSON.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
-char* json_string(cJSON* json, char* name) {
-    cJSON* object = cJSON_GetObjectItemCaseSensitive(json, name);
-    return cJSON_GetStringValue(object);
-}
+#include "schemas.h"
+#include "spacetraders-functions.h"
 
-int json_int(cJSON* json, char* name) {
-    cJSON* object = cJSON_GetObjectItemCaseSensitive(json, name);
-    return cJSON_GetNumberValue(object);
-}
-
-void create_account(st_client_t *client, char *faction, char *symbol, char *email)
-{
-    cJSON* request = cJSON_CreateObject();
-    cJSON_AddStringToObject(request, "faction", faction);
-    cJSON_AddStringToObject(request, "symbol", symbol);
-    cJSON_AddStringToObject(request, "email", email);
-    char* data = cJSON_Print(request);
-    cJSON_Delete(request);
+void create_account(st_client_t* client, char* faction, char* symbol,
+                    char* email) {
+  char* data = parse_account_request(faction, symbol, email);
 #ifdef DEBUG
-    printf("%s\n", data);
+  printf("%s\n", data);
 #endif
-    char* response = api_post(client, "/register", data); 
+  char* response = api_post(client, "/register", data);
 
-    free(data);
-    free(response);
+  //     cJSON *json = cJSON_Parse(response);
+  //     cJSON *agent_data = cJSON_GetObjectItemCaseSensitive(json, "data");
+  //     st_agent_t agent = parse_agent(cJSON_GetObjectItemCaseSensitive(json,
+  //     "agent"));
+
+  //     cJSON_Delete(json);
+  //     free(data);
+  //     free(response);
 }
 
-void status(st_client_t *client)
-{
-    char* response = api_get(client, "/");
-    cJSON* json = cJSON_Parse(response);
-    cJSON* stats = cJSON_GetObjectItemCaseSensitive(json, "stats");
-    // cJSON* leaderboards = cJSON_GetObjectItemCaseSensitive(json, "leaderboards");
-    cJSON* serverResets = cJSON_GetObjectItemCaseSensitive(json, "serverResets");
-    // cJSON* announcements = cJSON_GetObjectItemCaseSensitive(json, "announcements");
-    // cJSON* links = cJSON_GetObjectItemCaseSensitive(json, "links");
-    
-    printf("SpaceTraders %s\n%s\nLast reset was %s\nNext reset is %s\n==========\n%s\n", json_string(json, "version"), json_string(json, "description"), json_string(json, "resetDate"), json_string(serverResets, "next"), json_string(json, "status"));
-
-    printf("STATS\n%d Agents Registered\n%d Ships Registers\n%d Systems Added\n%d Waypoints Added\n", json_int(stats, "agents"), json_int(stats, "ships"), json_int(stats, "systems"), json_int(stats, "waypoints"));
-    
-    cJSON_Delete(json);
-    free(response);
+void status(st_client_t* client) {
+  char* response = api_get(client, "/");
+  st_status_t status = parse_status(response);
+  print_status(status);
+  free_status(status);
+  free(response);
 }
 
-void get_agent(st_client_t *client)
-{
-    char *header = "Authorization: ";
-    char *token;
-    if (client->token == NULL)
-    {
-        token = "";
-    }
-    else
-    {
-        token = client->token;
-    }
-    header = realloc(header, strlen(header) + strlen(token));
-    api_header_get(client, "/my/agent", &header, 1);
+void get_agent(st_client_t* client) {
+  char* header = "Authorization: ";
+  char* token;
+  if (client->token == NULL) {
+    token = "";
+  } else {
+    token = client->token;
+  }
+  header = realloc(header, strlen(header) + strlen(token));
+  api_header_get(client, "/my/agent", &header, 1);
 }
