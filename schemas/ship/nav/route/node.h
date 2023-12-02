@@ -3,7 +3,7 @@
 #include "../../../enums/enums.h"
 typedef struct {
   char* symbol;
-  WAYPOINT_TYPE type;
+  st_waypoint_types_t type;
   char* system_symbol;
   int x;
   int y;

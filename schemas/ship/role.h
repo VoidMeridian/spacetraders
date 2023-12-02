@@ -15,5 +15,5 @@ typedef enum {
   SATELLITE,
   EXPLORER,
   REFINERY
-} SHIP_ROLE;
+} st_ship_roles_t;
 #endif

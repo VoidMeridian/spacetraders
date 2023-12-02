@@ -11,5 +11,5 @@ typedef enum {
   HYPERGIANT,
   NEBULA,
   UNSTABLE
-} STAR_TYPE;
+} st_star_types_t;
 #endif

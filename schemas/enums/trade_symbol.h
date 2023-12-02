@@ -144,5 +144,5 @@ typedef enum {
   SHIP_ORE_HOUND,
   SHIP_REFINING_FREIGHTER,
   SHIP_SURVEYOR
-} TRADE_SYMBOL;
+} st_trade_items_t;
 #endif

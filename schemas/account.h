@@ -10,5 +10,5 @@ typedef struct {
   st_faction_t faction;
   st_ship_t ship;
   char* token;
-} st_account_info_t;
+} st_account_t;
 #endif

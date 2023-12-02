@@ -5,12 +5,12 @@
 #include "trait.h"
 typedef struct {
   char* symbol;
-  WAYPOINT_TYPE type;
+  st_waypoint_types_t type;
   char* system_symbol;
   int x;
   int y;
   char** orbitals;
-  FACTION_SYMBOL symbol;
+  st_faction_symbols_t symbol;
   st_scanned_waypoint_trait_t* traits;
 } st_scanned_waypoint_t;
 #endif

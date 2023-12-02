@@ -20,5 +20,5 @@ typedef enum {
   ANCIENTS,
   SHADOW,
   ETHEREAL
-} FACTION_SYMBOL;
+} st_faction_symbols_t;
 #endif

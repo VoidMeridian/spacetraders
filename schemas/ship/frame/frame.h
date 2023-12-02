@@ -1,9 +1,9 @@
 #ifndef SPACETRADERS_SCHEMAS_SHIP_FRAME_FRAME_H_
 #define SPACETRADERS_SCHEMAS_SHIP_FRAME_FRAME_H_
+#include "../requirements.h"
 #include "enums/type.h"
-#include "requirements.h"
 typedef struct {
-  FRAME_TYPE frame;
+  st_ship_frame_types_t symbol;
   char* name;
   char* description;
   int condition;

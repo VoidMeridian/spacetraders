@@ -4,7 +4,7 @@
 #include "enums/symbol.h"
 #include "traits.h"
 typedef struct {
-  FACTION_SYMBOL symbol;
+  st_faction_symbols_t symbol;
   char* name;
   char* description;
   char* headquarters;

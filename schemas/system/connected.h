@@ -4,7 +4,7 @@
 typedef struct {
   char* symbol;
   char* sector_symbol;
-  STAR_TYPE type;
+  st_star_types_t type;
   char* faction_symbol;
   int x;
   int y;

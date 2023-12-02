@@ -60,5 +60,5 @@ typedef enum {
   COMMERCIAL,
   FREE_MARKETS,
   ENTREPRENEURIAL
-} FACTION_TRAIT;
+} st_faction_traits_t;
 #endif

@@ -4,6 +4,6 @@
 typedef struct {
   char* name;
   char* faction_symbol;
-  SHIP_ROLE role;
+  st_ship_roles_t role;
 } st_ship_registration_t;
 #endif
