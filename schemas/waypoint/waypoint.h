@@ -1,0 +1,4 @@
+#ifndef SPACETRADERS_SCHEMAS_WAYPOINT_WAYPOINT_H_
+#define SPACETRADERS_SCHEMAS_WAYPOINT_WAYPOINT_H_
+#include "scanned/waypoint.h"
+#endif

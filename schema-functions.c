@@ -26,12 +26,12 @@ void print_status(st_status_t status) {
 
   printf("ANNOUNCEMENTS\n");
   for (int i = 0; i < status.announcements_len; i++) {
-    st_bi_str entry = status.announcements[i];
+    st_status_entry entry = status.announcements[i];
     printf("\t%s %s\n", entry.name, entry.value);
   }
   printf("LINKS\n");
   for (int i = 0; i < status.links_len; i++) {
-    st_bi_str entry = status.links[i];
+    st_status_entry entry = status.links[i];
     printf("\t%s %s\n", entry.name, entry.value);
   }
 }

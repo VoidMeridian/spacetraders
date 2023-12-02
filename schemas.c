@@ -84,12 +84,12 @@ st_status_t parse_status(char* data) {
   cJSON* announcements =
       cJSON_GetObjectItemCaseSensitive(json, "announcements");
   status.announcements_len = cJSON_GetArraySize(announcements);
-  st_bi_str* announcements_list =
-      malloc(status.announcements_len * sizeof(st_bi_str));
+  st_status_entry* announcements_list =
+      malloc(status.announcements_len * sizeof(st_status_entry));
   i = 0;
   entry = NULL;
   cJSON_ArrayForEach(entry, announcements) {
-    st_bi_str st_entry;
+    st_status_entry st_entry;
     st_entry.name = get_string(entry, "title");
     st_entry.value = get_string(entry, "body");
     announcements_list[i++] = st_entry;
@@ -97,11 +97,11 @@ st_status_t parse_status(char* data) {
   status.announcements = announcements_list;
   cJSON* links = cJSON_GetObjectItemCaseSensitive(json, "links");
   status.links_len = cJSON_GetArraySize(links);
-  st_bi_str* links_list = malloc(status.links_len * sizeof(st_bi_str));
+  st_status_entry* links_list = malloc(status.links_len * sizeof(st_status_entry));
   i = 0;
   entry = NULL;
   cJSON_ArrayForEach(entry, links) {
-    st_bi_str st_entry;
+    st_status_entry st_entry;
     st_entry.name = get_string(entry, "name");
     st_entry.value = get_string(entry, "url");
     links_list[i++] = st_entry;
