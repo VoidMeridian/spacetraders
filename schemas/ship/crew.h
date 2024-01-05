@@ -4,7 +4,7 @@ typedef struct {
   int current;
   int required;
   int capacity;
-  enum { STRICT, RELAXED } rotation;
+  enum { ROTATION_STRICT, ROTATION_RELAXED } rotation;
   int morale;
   int wages;
 } st_ship_crew_t;

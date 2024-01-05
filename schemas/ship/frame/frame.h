@@ -3,9 +3,9 @@
 #include "../requirements.h"
 #include "enums/type.h"
 typedef struct {
-  st_ship_frame_types_t symbol;
-  char* name;
-  char* description;
+  st_ship_frame_types_e symbol;
+  char *name;
+  char *description;
   int condition;
   int module_slots;
   int mount_points;

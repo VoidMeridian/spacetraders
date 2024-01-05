@@ -3,8 +3,8 @@
 #include "../bool.h"
 #include "material.h"
 typedef struct {
-  char* symbol;
-  st_construction_material_t* materials;
+  char *symbol;
+  st_construction_material_t *materials;
   st_bool_t is_complete;
 } st_construction_t;
 #endif

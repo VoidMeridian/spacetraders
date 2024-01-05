@@ -16,5 +16,7 @@
 #include "schemas/status/status.h"
 #include "schemas/system/system.h"
 #include "schemas/waypoint/waypoint.h"
-
+#include "schemas/siphon/siphon.h"
+#include "schemas/shipyard/shipyard.h"
+#include "schemas/survey/survey.h"
 #endif

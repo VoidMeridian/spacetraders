@@ -3,11 +3,11 @@
 #include "../requirements.h"
 #include "enums/type.h"
 typedef struct {
-  st_ship_module_types_t symbol;
+  st_ship_module_types_e symbol;
   int capacity;
   int range;
-  char* name;
-  char* description;
+  char *name;
+  char *description;
   st_ship_requirements_t requirements;
 } st_ship_module_t;
 #endif

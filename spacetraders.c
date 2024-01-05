@@ -8,13 +8,13 @@
 #include "schemas.h"
 #include "spacetraders-functions.h"
 
-void create_account(st_client_t* client, char* faction, char* symbol,
-                    char* email) {
-  char* data = parse_account_request(faction, symbol, email);
+void create_account(st_client_t *client, char *faction, char *symbol,
+					char *email) {
+  char *data = parse_account_request(faction, symbol, email);
 #ifdef DEBUG
   printf("%s\n", data);
 #endif
-  char* response = api_post(client, "/register", data);
+  char *response = api_post(client, "/register", data);
 
   //     cJSON *json = cJSON_Parse(response);
   //     cJSON *agent_data = cJSON_GetObjectItemCaseSensitive(json, "data");
@@ -26,21 +26,21 @@ void create_account(st_client_t* client, char* faction, char* symbol,
   //     free(response);
 }
 
-void status(st_client_t* client) {
-  char* response = api_get(client, "/");
+void status(st_client_t *client) {
+  char *response = api_get(client, "/");
   st_status_t status = parse_status(response);
   print_status(status);
   free_status(status);
   free(response);
 }
 
-void get_agent(st_client_t* client) {
-  char* header = "Authorization: ";
-  char* token;
+void get_agent(st_client_t *client) {
+  char *header = "Authorization: ";
+  char *token;
   if (client->token == NULL) {
-    token = "";
+	token = "";
   } else {
-    token = client->token;
+	token = client->token;
   }
   header = realloc(header, strlen(header) + strlen(token));
   api_header_get(client, "/my/agent", &header, 1);

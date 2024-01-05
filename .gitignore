@@ -3,3 +3,5 @@
 *.so
 tests/test
 valgrind-out.txt
+/.cache/
+/.idea/

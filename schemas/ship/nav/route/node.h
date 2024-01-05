@@ -2,9 +2,9 @@
 #define SPACETRADERS_SCHEMAS_SHIP_NAV_ROUTE_NODE_H_
 #include "../../../enums/enums.h"
 typedef struct {
-  char* symbol;
-  st_waypoint_types_t type;
-  char* system_symbol;
+  char *symbol;
+  st_waypoint_types_e type;
+  char *system_symbol;
   int x;
   int y;
 } st_nav_route_node_t;

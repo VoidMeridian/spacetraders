@@ -1,0 +1,14 @@
+//
+// Created by meridiandawn on 1/4/24.
+//
+
+#ifndef SPACETRADERS_SCHEMAS_WAYPOINT_MODIFIER_H_
+#define SPACETRADERS_SCHEMAS_WAYPOINT_MODIFIER_H_
+
+typedef struct {
+  enum { MODIFIER_STRIPPED, MODIFIER_UNSTABLE, MODIFIER_RADIATION_LEAK, MODIFIER_CRITICAL_LIMIT, MODIFIER_CIVIL_UNREST }
+	  symbol;
+  char *name;
+  char *description;
+} st_waypoint_modifier_t;
+#endif //SPACETRADERS_SCHEMAS_WAYPOINT_MODIFIER_H_

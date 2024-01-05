@@ -9,6 +9,6 @@ typedef struct {
   st_contract_t contract;
   st_faction_t faction;
   st_ship_t ship;
-  char* token;
+  char *token;
 } st_account_t;
 #endif

@@ -3,8 +3,8 @@
 #include "goods.h"
 #include "payment.h"
 typedef struct {
-  char* deadline;
+  char *deadline;
   st_contract_payment_t payment;
-  st_contract_deliver_goods_t* deliver;
+  st_contract_deliver_goods_t *deliver;
 } st_contract_terms_t;
 #endif

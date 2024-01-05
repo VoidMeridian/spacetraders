@@ -3,9 +3,9 @@
 #include "../requirements.h"
 #include "enums/type.h"
 typedef struct {
-  st_ship_reactor_types_t symbol;
-  char* name;
-  char* description;
+  st_ship_reactor_types_e symbol;
+  char *name;
+  char *description;
   int condition;
   int power_output;
   st_ship_reactor_requirements_t requirements;

@@ -4,10 +4,10 @@
 #include "enums/symbol.h"
 #include "traits.h"
 typedef struct {
-  st_faction_symbols_t symbol;
-  char* name;
-  char* description;
-  char* headquarters;
+  st_faction_symbols_e symbol;
+  char *name;
+  char *description;
+  char *headquarters;
   st_faction_traits_t traits;
   st_bool_t is_recruiting;
 } st_faction_t;

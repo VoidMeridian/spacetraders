@@ -3,12 +3,12 @@
 #include "nav/nav.h"
 #include "registration.h"
 typedef struct {
-  char* symbol;
+  char *symbol;
   st_ship_registration_t registration;
   st_ship_nav_t nav;
-  char* frame;
-  char* reactor;
-  char* engine;
-  char** mounts;
+  char *frame;
+  char *reactor;
+  char *engine;
+  char **mounts;
 } st_scanned_ship_t;
 #endif

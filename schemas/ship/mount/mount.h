@@ -4,11 +4,11 @@
 #include "enums/deposit.h"
 #include "enums/mount.h"
 typedef struct {
-  st_ship_mount_types_t symbol;
-  char* name;
-  char* description;
+  st_ship_mount_types_e symbol;
+  char *name;
+  char *description;
   int strength;
-  st_ship_mount_deposit_types_t deposits;
+  st_ship_mount_deposit_types_e deposits;
   st_ship_requirements_t requirements;
 } st_ship_mount_t;
 #endif
